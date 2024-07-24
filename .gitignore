@@ -482,3 +482,9 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+Infrastructure/Data/SeedData/types.json
+Infrastructure/Data/SeedData/products.json
+Infrastructure/Data/SeedData/brands.json
+Infrastructure/Data/Migrations/20240723135715_InitialCreate.cs
+Infrastructure/Data/Migrations/20240723135715_InitialCreate.Designer.cs
+API/wwwroot/images/products
