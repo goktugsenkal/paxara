@@ -488,3 +488,5 @@ Infrastructure/Data/SeedData/brands.json
 Infrastructure/Data/Migrations/20240723135715_InitialCreate.cs
 Infrastructure/Data/Migrations/20240723135715_InitialCreate.Designer.cs
 API/wwwroot/images/products
+client/ssl/localhost-key.pem
+client/ssl/localhost.pem
