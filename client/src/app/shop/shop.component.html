@@ -2,27 +2,30 @@
     <div class="row">
         <section class="col-3">
             <h5 class="text-primary ms-3">Sırala</h5>
-            <select name="" id="" class="form-select mb-4">
-                <option value="">Alfabetik</option>
-                <option value="">Fiyat: Artan</option>
-                <option value="">Fiyat: Azalan</option>
+            <select name="" id="" class="form-select mb-4" (change)="onSortSelected($event)">
+                <option *ngFor="let sort of sortOptions" [value]="sort.value">
+                    {{sort.name}}
+                </option>
             </select>
 
             <h5 class="text-primary ms-3">Markalar</h5>
                 <ul class="list-group my-3">
-                    <li class="list-group-item active">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item"
+                    *ngFor="let brand of brands"
+                    [class.active]="brand.id == brandIdSelected"
+                    [value]="brand.id"
+                    (click)="onBrandSelected(brand.id)">
+                    {{brand.name}}
+                    </li>
                 </ul>
-            <h5 class="text-primary ms-3">Types</h5>
+            <h5 class="text-primary ms-3">Kategoriler</h5>
                 <ul class="list-group my-3">
-                    <li class="list-group-item active">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item" *ngFor="let type of types"
+                    [class.active]="type.id == typeIdSelected"
+                    [value]="type.id"
+                    (click)="onTypeSelected(type.id)">
+                    {{type.name}}
+                    </li>
                 </ul>
         
         </section>
@@ -30,7 +33,7 @@
         <section class="col-9">
             <div class="d-flex justify-content-between align-items-center pb-2">
                 <header>
-                    <span>Showing <strong>10</strong> of <strong>18</strong> results</span>
+                    <span></span>
                 </header>
 
                 <div class="d-flex mt-2">
