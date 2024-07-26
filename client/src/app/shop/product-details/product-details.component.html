@@ -1,1 +1,6 @@
-<p>product-details works!</p>
+<div *ngIf="product"></div>
+
+<h1>{{product?.name}}</h1>
+<h6>{{product?.description}}</h6>
+<img src="{{product?.pictureUrl}}" alt="">
+<h3>{{product?.price | currency: "₺"}}</h3>
