@@ -490,3 +490,4 @@ Infrastructure/Data/Migrations/20240723135715_InitialCreate.Designer.cs
 API/wwwroot/images/products
 client/ssl/localhost-key.pem
 client/ssl/localhost.pem
+.vscode/settings.json
