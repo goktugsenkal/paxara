@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { ShopModule } from './shop/shop.module';
 import { HomeModule } from './home/home.module';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { withNavigationErrorHandler } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,12 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    ShopModule,
     HomeModule
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

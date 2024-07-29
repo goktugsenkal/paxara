@@ -1,0 +1,13 @@
+<p>server-error works!</p>
+
+<div class="container mt-5">
+    <h1>Server Error</h1>
+    <ng-container *ngIf="error">
+        <h5 class="text-danger">Error: {{error.Message}}</h5>
+        <p class="font-weight-bold">This error comes from the server not Angular</p>
+
+
+        <h5>Stack Trace</h5>
+        <code class="mt-5" style="background-color: antiquewhite;">{{error.Details}}</code>
+    </ng-container>
+</div>
