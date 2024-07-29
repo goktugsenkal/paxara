@@ -15,7 +15,9 @@ a {
     color: #343a40;
 
     &.active {
-        color: orange;
+        background-color: #d9d9d9;
+        border: 1px solid transparent;
+        border-radius: 8px;
     }
 }
 
