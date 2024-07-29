@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { withNavigationErrorHandler } from '@angular/router';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { withNavigationErrorHandler } from '@angular/router';
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    provideHttpClient(withFetch(), withInterceptorsFromDi(), withInterceptors([loadingInterceptor])),
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]

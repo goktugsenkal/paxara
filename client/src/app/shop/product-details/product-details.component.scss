@@ -1,6 +1,48 @@
-img {
-    max-width: 300px;
-    max-height: 300px;
-    border: 1px solid black;
-    border-radius: 8px;
+.row {
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.display-4 {
+  font-weight: 700;
+}
+
+.lead {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.icon-hover {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.icon-hover:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.quantity-display {
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.btn-gradient {
+  background: linear-gradient(45deg, #007bff, #00d4ff);
+  color: white;
+  border: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #007bff, #00d4ff);
+  transform: scale(1.25);
+  transition: background 0.3s, transform 0.3s;
 }
