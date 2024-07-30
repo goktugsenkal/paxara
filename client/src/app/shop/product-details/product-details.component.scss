@@ -34,7 +34,7 @@
   color: #343a40;
 }
 
-.btn-gradient {
+.btn-gradient, .btn-gradient:active{
   background: linear-gradient(45deg, #007bff, #00d4ff);
   color: white;
   border: none;
