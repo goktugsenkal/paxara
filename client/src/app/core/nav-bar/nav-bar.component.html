@@ -14,9 +14,11 @@
     <div class="d-flex align-items-center">
         <button class="mx-2 btn btn-secondary">Giriş Yap</button>
         <button class="mx-2 btn btn-outline-secondary ">Kayıt ol</button>
-        <a class="mx-3 position-relative" href="#">
+        <a routerLink="/basket" class="mx-3 position-relative" href="#">
             <i class="fa fa-shopping-cart fa-2x me-5 "></i>
-            <div class="cart-no">5</div>
+            <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
+                {{getCount(basket.items)}}
+            </div>
         </a>
     </div>
     
