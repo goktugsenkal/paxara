@@ -6,12 +6,16 @@
     <div class="col-md-6 mt-5">
       <h2 class="display-4 text-primary">{{product.name}}</h2>
       <p class="lead text-success">{{product.price | currency:"₺"}}</p>
+
+      <h5 class="text-primary mb-3" *ngIf="quantityInBasket > 0">
+        Sepetinizde {{quantityInBasket}} adet var!
+      </h5>
   
       <div class="d-flex align-items-center my-4">
-        <i class="fa fa-minus-circle text-primary me-3 icon-hover"></i>
-        <span class="fw-bold me-3 quantity-display">2</span>
-        <i class="fa fa-plus-circle text-primary me-3 icon-hover"></i>
-        <button class="btn btn-gradient ms-4">Sepete Ekle</button>
+        <i (click)="decrementQuantity()" class="fa fa-minus-circle text-primary me-3 icon-hover"></i>
+        <span class="fw-bold me-3 quantity-display">{{quantity}}</span>
+        <i (click)="incrementQuantity()" class="fa fa-plus-circle text-primary me-3 icon-hover"></i>
+        <button (click)="updateBasket()" class="btn btn-gradient ms-4">{{buttonText}}</button>
       </div>
   
       <div class="mt-4">

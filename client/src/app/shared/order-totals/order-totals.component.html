@@ -1,0 +1,21 @@
+<div class="bg-light px-4 py-3 text-uppercase fw-bold">
+    SİPARİŞ ÖZETİ
+</div>
+
+<div class="p-4">
+    <p class="fst-italic mb-4">Kargo ücretiniz seçiminize göre hesaplanacaktır.</p>
+    <ul class="list-unstyled mb4" *ngIf="(basketService.basketTotalSource$ | async) as totals">
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Ürünler Toplamı</strong>
+            <strong>{{totals.subtotal | currency:"₺"}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Kargo Ücreti</strong>
+            <strong>{{totals.shipping | currency:"₺"}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Genel Toplam</strong>
+            <strong>{{totals.total | currency:"₺"}}</strong>
+        </li>
+    </ul>
+</div>
