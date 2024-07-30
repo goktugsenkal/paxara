@@ -491,3 +491,7 @@ API/wwwroot/images/products
 client/ssl/localhost-key.pem
 client/ssl/localhost.pem
 .vscode/settings.json
+client/src/app/core/section-header/section-header.component.html
+client/src/app/core/section-header/section-header.component.scss
+client/src/app/core/section-header/section-header.component.ts
+.vscode/settings.json
