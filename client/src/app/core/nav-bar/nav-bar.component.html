@@ -12,8 +12,38 @@
     </nav>
 
     <div class="d-flex align-items-center">
-        <button class="mx-2 btn btn-secondary">Giriş Yap</button>
-        <button class="mx-2 btn btn-outline-secondary ">Kayıt ol</button>
+        <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+            <button routerLink="/account/login" class="mx-2 btn btn-secondary">Giriş Yap</button>
+            <button routerLink="/account/register" class="mx-2 btn btn-outline-secondary ">Kayıt ol</button>
+        </ng-container>
+
+        <ng-container *ngIf="accountService.currentUser$ |async as user">
+            <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
+                <a dropdownToggle class="dropdown-toggle">
+                    <strong>Hoşgeldin, {{user.displayName}}</strong>
+                </a>
+
+                <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                    <li class="py-1">
+                        <a routerLink="/basket" class="dropdown-item">
+                            <i class="fa fa-shopping-cart me-3"></i> Sepete git
+                        </a>
+                    </li>
+                    <li class="py-1">
+                        <a routerLink="/basket" class="dropdown-item">
+                            <i class="fa fa-history me-3"></i> Siparişlerim
+                        </a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="py-1">
+                        <a (click)="accountService.logout()" class="dropdown-item">
+                            <i class="fa fa-sign-out me-3"></i> Çıkış Yap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
         <a routerLink="/basket" class="mx-3 position-relative" href="#">
             <i class="fa fa-shopping-cart fa-2x me-5 "></i>
             <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
