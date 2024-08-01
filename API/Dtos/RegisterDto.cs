@@ -16,7 +16,7 @@ namespace API.Dtos
         public string Email { get; set; }
         [Required]
         [RegularExpression("(?=^.{6,10}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\\s).*$",
-         ErrorMessage = "Your password is very weak🤣")]
+         ErrorMessage = "Şifreniz çok zayıf 🤣")]
         public string Password { get; set; }
     }
 }
