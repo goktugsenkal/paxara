@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AccountService } from '../account.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { error } from 'console';
 
 @Component({
   selector: 'app-register',

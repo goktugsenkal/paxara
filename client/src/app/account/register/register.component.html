@@ -8,6 +8,12 @@
                 <app-text-input [formControl]="loginForm.controls['email']" [label]="'E-posta'"></app-text-input>
                 <app-text-input [formControl]="loginForm.controls['password']" [label]="'Şifre'" [type]="'password'"></app-text-input>
                 
+                <ul class="text-danger list-unstyled">
+                    <li *ngFor="let error of errors">
+                        {{error}}
+                    </li>
+                </ul>
+
                 <div class="d-grid">
                     <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3">Kayıt Ol</button>
                 </div>
