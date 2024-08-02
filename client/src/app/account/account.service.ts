@@ -11,23 +11,13 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  private currentUserSource = new ReplaySubject<User | null>(1);
+  private currentUserSource = new BehaviorSubject<User | null>(null );
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private http: HttpClient, private router: Router, @Inject(PLATFORM_ID) private platformId: Object
+  constructor(private http: HttpClient, private router: Router
 ) {
-  this.loadCurrentUserOnInit();
-  }
-
-  private loadCurrentUserOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      const token = localStorage.getItem("token");
-      if (token) {
-        this.loadCurrentUser(token).subscribe();
-      } else {
-        this.currentUserSource.next(null);
-      }
-    }
+  let currentUserToken = isPlatformBrowser(PLATFORM_ID) ? localStorage.getItem('token') : "return"
+  this.loadCurrentUser(currentUserToken);
   }
 
   loadCurrentUser(token: string | null){
@@ -60,6 +50,15 @@ export class AccountService {
         this.currentUserSource.next(user);
       })
     );
+  }
+
+  autoLogin(){
+    const userData = localStorage.getItem("token");
+    if (!userData) {
+      this.currentUserSource.next(null);
+      return
+    }
+    this.login(userData);
   }
 
   register(values: any){
