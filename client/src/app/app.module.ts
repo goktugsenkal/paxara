@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { withNavigationErrorHandler } from '@angular/router';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { loadingInterceptor } from './core/interceptors/loading.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    HomeModule
+    HomeModule,
+    CheckoutModule
   ],
   providers: [
     provideClientHydration(),

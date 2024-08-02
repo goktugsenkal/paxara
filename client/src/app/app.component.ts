@@ -29,12 +29,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     if (isPlatformBrowser(this.platformId)) {
-      const token = localStorage.getItem("token");
-    if (token) {
-      this.accountService.loadCurrentUser(token).subscribe();
-    }
+      const token = localStorage.getItem('token');
+      if (token) {
+        this.accountService.loadCurrentUser(token).subscribe();
+      }
     }
   }
 }
